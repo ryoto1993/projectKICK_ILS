@@ -1,0 +1,35 @@
+.root {
+    -fx-font-family: "Segoe UI";
+}
+
+#default_label {
+   -fx-font-size: 20pt;
+}
+
+#default_button {
+    -fx-border-color: grey;
+    -fx-border-width: 2;
+    -fx-border-radius: 7;
+    -fx-background-radius: 7;
+    -fx-font-size: 17pt;
+    -fx-text-fill: black;
+    -fx-background-color: white;
+}
+#default_button:hover {
+    -fx-background-color: #aecaff;
+}
+#default_button:pressed {
+    -fx-background-color: cornflowerblue;
+    -fx-text-fill: white;
+}
+#default_button:selected {
+    -fx-background-color: cornflowerblue;
+    -fx-text-fill: white;
+}
+
+
+#tab_label {
+    -fx-font-size: 20pt;
+    -fx-tab-min-width: 160;
+    -fx-tab-min-height: 45;
+}
