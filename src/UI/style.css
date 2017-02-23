@@ -33,3 +33,13 @@
     -fx-tab-min-width: 160;
     -fx-tab-min-height: 45;
 }
+
+#sensor_box {
+    -fx-padding: 10;
+    -fx-start-margin: 10;
+    -fx-end-margin: 10;
+    -fx-background_color: #666666;
+    -fx-border-color: blue;
+    -fx-border-radius: 7;
+    -fx-border-width: 2;
+}

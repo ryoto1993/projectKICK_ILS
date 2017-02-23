@@ -5,37 +5,26 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ToggleButton?>
 <?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
 
-<GridPane minHeight="650.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
-   <columnConstraints>
-      <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="598.0" minWidth="10.0" prefWidth="598.0" />
-      <ColumnConstraints hgrow="SOMETIMES" maxWidth="656.0" minWidth="10.0" prefWidth="602.0" />
-   </columnConstraints>
-   <rowConstraints>
-      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-   </rowConstraints>
-   <children>
-      <GridPane prefHeight="549.0" prefWidth="631.0">
-         <rowConstraints>
-            <RowConstraints maxHeight="476.0" minHeight="10.0" prefHeight="467.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="476.0" minHeight="10.0" prefHeight="163.0" vgrow="SOMETIMES" />
-         </rowConstraints>
-         <columnConstraints>
-            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-         </columnConstraints>
-         <children>
-            <Canvas height="411.0" width="411.0" />
-            <GridPane GridPane.rowIndex="1">
+<BorderPane minHeight="300.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
+   <center>
+      <BorderPane>
+         <center>
+            <Canvas height="500.0" width="500.0" BorderPane.alignment="CENTER" />
+         </center>
+         <bottom>
+            <GridPane BorderPane.alignment="CENTER">
                <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                </columnConstraints>
                <rowConstraints>
                   <RowConstraints maxHeight="59.0" minHeight="10.0" prefHeight="55.0" vgrow="SOMETIMES" />
-                  <RowConstraints maxHeight="72.0" minHeight="10.0" prefHeight="52.0" vgrow="SOMETIMES" />
                   <RowConstraints maxHeight="72.0" minHeight="10.0" prefHeight="52.0" vgrow="SOMETIMES" />
                </rowConstraints>
                <children>
@@ -70,45 +59,55 @@
                         </Button>
                      </children>
                   </HBox>
-                  <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="2">
-                     <children>
-                        <Button id="default_button" mnemonicParsing="false" text="最大点灯">
-                           <HBox.margin>
-                              <Insets left="5.0" right="5.0" />
-                           </HBox.margin>
-                        </Button>
-                        <Button id="default_button" mnemonicParsing="false" text="最小点灯">
-                           <HBox.margin>
-                              <Insets left="5.0" right="5.0" />
-                           </HBox.margin>
-                        </Button>
-                        <Button id="default_button" mnemonicParsing="false" text="全灯消灯">
-                           <HBox.margin>
-                              <Insets left="5.0" right="5.0" />
-                           </HBox.margin>
-                        </Button>
-                     </children>
-                  </HBox>
                </children>
             </GridPane>
-         </children>
-         <GridPane.margin>
-            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-         </GridPane.margin>
-      </GridPane>
-      <GridPane prefHeight="529.0" prefWidth="565.0" GridPane.columnIndex="1">
-         <rowConstraints>
-            <RowConstraints maxHeight="476.0" minHeight="10.0" prefHeight="178.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="476.0" minHeight="10.0" prefHeight="197.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="269.0" minHeight="10.0" prefHeight="175.0" vgrow="SOMETIMES" />
-         </rowConstraints>
-         <columnConstraints>
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-         </columnConstraints>
-         <GridPane.margin>
-            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-         </GridPane.margin>
-      </GridPane>
-   </children>
-</GridPane>
+         </bottom>
+      </BorderPane>
+   </center>
+   <right>
+      <BorderPane GridPane.columnIndex="1">
+         <center>
+            <GridPane prefWidth="500.0" BorderPane.alignment="CENTER">
+               <rowConstraints>
+                  <RowConstraints maxHeight="476.0" minHeight="10.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="476.0" minHeight="10.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="269.0" minHeight="10.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+               </columnConstraints>
+               <children>
+                  <VBox id="sensor_box" />
+                  <VBox id="sensor_box" GridPane.columnIndex="1" />
+                  <VBox id="sensor_box" GridPane.rowIndex="1" />
+                  <VBox id="sensor_box" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <VBox id="sensor_box" GridPane.rowIndex="2" />
+                  <VBox id="sensor_box" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+               </children>
+            </GridPane>
+         </center>
+         <bottom>
+            <HBox alignment="TOP_CENTER" prefHeight="50.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Button id="default_button" mnemonicParsing="false" text="最大点灯">
+                     <HBox.margin>
+                        <Insets left="5.0" right="5.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button id="default_button" mnemonicParsing="false" text="最小点灯">
+                     <HBox.margin>
+                        <Insets left="5.0" right="5.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button id="default_button" mnemonicParsing="false" text="全灯消灯">
+                     <HBox.margin>
+                        <Insets left="5.0" right="5.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+            </HBox>
+         </bottom>
+      </BorderPane>
+   </right>
+</BorderPane>
