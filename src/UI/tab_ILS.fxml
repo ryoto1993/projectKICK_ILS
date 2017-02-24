@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane minHeight="300.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane minHeight="200.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
    <center>
       <BorderPane>
          <center>
@@ -67,7 +67,7 @@
    <right>
       <BorderPane GridPane.columnIndex="1">
          <center>
-            <GridPane prefWidth="500.0" BorderPane.alignment="CENTER">
+            <GridPane maxWidth="700.0" minWidth="400.0" BorderPane.alignment="CENTER">
                <rowConstraints>
                   <RowConstraints maxHeight="476.0" minHeight="10.0" vgrow="SOMETIMES" />
                   <RowConstraints maxHeight="476.0" minHeight="10.0" vgrow="SOMETIMES" />
@@ -78,13 +78,19 @@
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
                </columnConstraints>
                <children>
-                  <VBox id="sensor_box" />
+                  <VBox id="sensor_box">
+                     <GridPane.margin>
+                        <Insets />
+                     </GridPane.margin></VBox>
                   <VBox id="sensor_box" GridPane.columnIndex="1" />
                   <VBox id="sensor_box" GridPane.rowIndex="1" />
                   <VBox id="sensor_box" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                   <VBox id="sensor_box" GridPane.rowIndex="2" />
                   <VBox id="sensor_box" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                </children>
+               <BorderPane.margin>
+                  <Insets bottom="10.0" top="10.0" />
+               </BorderPane.margin>
             </GridPane>
          </center>
          <bottom>

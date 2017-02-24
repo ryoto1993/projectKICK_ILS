@@ -3,7 +3,7 @@
 }
 
 #default_label {
-   -fx-font-size: 20pt;
+   -fx-font-size: 18pt;
 }
 
 #default_button {
@@ -27,6 +27,27 @@
     -fx-text-fill: white;
 }
 
+#select_button {
+    -fx-pref-width: 120;
+    -fx-border-color: grey;
+    -fx-border-width: 2;
+    -fx-border-radius: 7;
+    -fx-background-radius: 7;
+    -fx-font-size: 17pt;
+    -fx-text-fill: black;
+}
+#select_button:hover {
+    -fx-background-color: #aecaff;
+}
+#select_button:pressed {
+    -fx-background-color: cornflowerblue;
+    -fx-text-fill: white;
+}
+#select_button:selected {
+    -fx-background-color: cornflowerblue;
+    -fx-text-fill: white;
+}
+
 
 #tab_label {
     -fx-font-size: 20pt;
@@ -35,11 +56,12 @@
 }
 
 #sensor_box {
+    -fx-border-insets: 15;
     -fx-padding: 10;
-    -fx-start-margin: 10;
-    -fx-end-margin: 10;
-    -fx-background_color: #666666;
+    -fx-background-insets: 15;
+    -fx-background-radius: 15;
     -fx-border-color: blue;
-    -fx-border-radius: 7;
+    -fx-border-radius: 15;
     -fx-border-width: 2;
+    -fx-background-color: lightgray;
 }

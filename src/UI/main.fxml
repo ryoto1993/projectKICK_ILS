@@ -17,12 +17,12 @@
         <tabs>
           <Tab text="知的照明システム">
               <content>
-                  <fx:include fx:id="tab_ILS" source="tab_ILS.fxml" />
+                  <fx:include fx:id="tab_ILS" source="tab_ILS_new.fxml" />
               </content>
           </Tab>
           <Tab text="光度・色温度制御">
               <content>
-                  <fx:include fx:id="tab_Control" source="tab_Control.fxml" />
+                  <fx:include fx:id="tab_Control" source="tab_Control_new.fxml" />
               </content>
           </Tab>
         </tabs>
