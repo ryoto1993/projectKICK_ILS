@@ -12,7 +12,9 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("main.fxml"));
         primaryStage.setTitle("Intelligent Lighting System Controller");
-        primaryStage.setScene(new Scene(root, 900, 580));
+        primaryStage.setScene(new Scene(root, 1200, 700));
+        primaryStage.setMinHeight(750);
+        primaryStage.setMinWidth(800);
         primaryStage.show();
     }
 

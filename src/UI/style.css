@@ -28,6 +28,7 @@
 }
 
 #select_button {
+    -fx-background-color: #879e88;
     -fx-pref-width: 120;
     -fx-border-color: grey;
     -fx-border-width: 2;
@@ -45,7 +46,7 @@
 }
 #select_button:selected {
     -fx-background-color: cornflowerblue;
-    -fx-text-fill: white;
+    -fx-text-fill: blue;
 }
 
 
@@ -56,12 +57,54 @@
 }
 
 #sensor_box {
+    -fx-pref-height: 200;
+    -fx-max-height: 200;
     -fx-border-insets: 15;
     -fx-padding: 10;
     -fx-background-insets: 15;
     -fx-background-radius: 15;
-    -fx-border-color: blue;
+    -fx-border-color: #395f9e;
     -fx-border-radius: 15;
     -fx-border-width: 2;
-    -fx-background-color: lightgray;
+    -fx-background-color: #4472c4;
+    -fx-alignment: center;
+}
+
+#sensor_title_label {
+    -fx-font-family: "Yu Gothic UI";
+    -fx-font-size: 20pt;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+    -fx-underline: true;
+}
+
+#sensor_label {
+    -fx-font-family: "Yu Gothic UI";
+    -fx-font-size: 17pt;
+    -fx-text-fill: white;
+}
+
+#attendance_box {
+    -fx-min-height: 38;
+    -fx-max-height: 38;
+    -fx-pref-height: 38;
+    -fx-background-color: #e7e6e6;
+    -fx-border-width: 2;
+    -fx-border-color: #7597d4;
+    -fx-border-radius: 19;
+    -fx-background-radius: 19;
+}
+
+#attendance_button {
+    -fx-min-width: 28;
+    -fx-min-height: 28;
+    -fx-pref-height: 28;
+    -fx-pref-height: 28;
+    -fx-max-width: 28;
+    -fx-max-height: 28;
+    -fx-border-width: 1;
+    -fx-border-radius: 14;
+    -fx-border-color: black;
+    -fx-background-color: green;
+    -fx-background-radius: 14;
 }
