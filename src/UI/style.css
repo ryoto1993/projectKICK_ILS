@@ -57,11 +57,12 @@
 }
 
 #sensor_box {
-    -fx-pref-height: 200;
-    -fx-max-height: 200;
-    -fx-border-insets: 15;
+    -fx-min-height: 190;
+    -fx-pref-height: 190;
+    -fx-max-height: 190;
+    -fx-border-insets: 10;
     -fx-padding: 10;
-    -fx-background-insets: 15;
+    -fx-background-insets: 10;
     -fx-background-radius: 15;
     -fx-border-color: #395f9e;
     -fx-border-radius: 15;
@@ -71,28 +72,34 @@
 }
 
 #sensor_title_label {
-    -fx-font-family: "Yu Gothic UI";
+    -fx-font-family: "Yu Gothic UI Semibold";
     -fx-font-size: 20pt;
-    -fx-font-weight: bold;
     -fx-text-fill: white;
     -fx-underline: true;
 }
 
 #sensor_label {
     -fx-font-family: "Yu Gothic UI";
-    -fx-font-size: 17pt;
+    -fx-font-size: 19pt;
+    -fx-text-alignment: center;
+    -fx-padding: -3 0 -3 0;
     -fx-text-fill: white;
 }
 
 #attendance_box {
+    -fx-alignment: center-left;
     -fx-min-height: 38;
     -fx-max-height: 38;
     -fx-pref-height: 38;
+    -fx-max-width: 100;
+    -fx-min-width: 100;
+    -fx-pref-width: 100;
     -fx-background-color: #e7e6e6;
     -fx-border-width: 2;
     -fx-border-color: #7597d4;
     -fx-border-radius: 19;
     -fx-background-radius: 19;
+    -fx-padding: 0 0 0 3;
 }
 
 #attendance_button {
@@ -105,6 +112,35 @@
     -fx-border-width: 1;
     -fx-border-radius: 14;
     -fx-border-color: black;
-    -fx-background-color: green;
+    -fx-background-color: #ed7d31;
     -fx-background-radius: 14;
+}
+
+#attendance_button:selected {
+    -fx-background-color: #00b050;
+}
+
+#attendance_label {
+    -fx-font-family: "Yu Gothic UI Semibold";
+    -fx-font-size: 17pt;
+    -fx-padding: 0 0 0 5;
+}
+
+#target_illuminance_button {
+    -fx-font-family: "Arial Black";
+    -fx-font-weight: bold;
+    -fx-font-size: 24;
+    -fx-alignment: center-left;
+    -fx-min-height: 38;
+    -fx-max-height: 38;
+    -fx-pref-height: 38;
+    -fx-max-width: 38;
+    -fx-min-width: 38;
+    -fx-pref-width: 38;
+    -fx-background-color: #e7e6e6;
+    -fx-border-width: 2;
+    -fx-border-color: #7597d4;
+    -fx-border-radius: 20;
+    -fx-background-radius: 20;
+    -fx-padding: 0 0 0 4;
 }
