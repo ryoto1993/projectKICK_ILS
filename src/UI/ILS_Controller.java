@@ -12,6 +12,7 @@ import javafx.scene.control.ToggleButton;
 import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
+import javafx.scene.transform.Affine;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -97,16 +98,46 @@ public class ILS_Controller implements Initializable {
 
     // キャンバスをアップデート
     public void updateCanvas() {
-        double size = canvas.getWidth();
         GraphicsContext gc= canvas.getGraphicsContext2D();
 
+        double size = canvas.getWidth();
+        double sx = 0.05, sy = 0.05;  // グリッドの右上
+        double ex = 0.95, ey = 0.95;  // グリッドの左下
 
-        // グリッド・照明・照度センサを描画
-        // ToDo: 画像やめよう
-        Image img =  new Image("UI/img/project_KICK.png");
-        gc.drawImage(img, 0, 0, size, size);
+        // 初期化
+        gc.setTransform(new Affine(1f, 0f, 0f, 0f, 1f, 0));
+        gc.clearRect(0, 0, canvas.getWidth(), canvas.getHeight());
+
+        // グリッド描画
+        gc.setFill(Color.WHITE);
+        gc.fillRect(sx*size, sy*size, (ex-sx)*size, (ey-sy)*size);
+        gc.setStroke(Color.BLACK);
+        gc.setLineWidth(3.0);
+        gc.strokeRect(sx*size, sy*size, (ex-sx)*size, (ey-sy)*size);
+
+        gc.setStroke(Color.GRAY);
+        gc.setLineWidth(0.5);
+        for(int y=0; y<9; y++) gc.strokeLine(sx*size, (sy+(ey-sy)/9*(y+1))*size, ex*size, (sy+(ey-sy)/9*(y+1))*size);
+        for(int x=0; x<9; x++) gc.strokeLine((sx+(ex-sx)/9*(x+1))*size, sy*size, (sx+(ex-sx)/9*(x+1))*size, ey*size);
+
+        // 照明を描画
+        int lightPos[][] = {{1, 1}, {4, 1}, {7, 1},
+                            {1, 4}, {4, 4}, {7, 4},
+                            {1, 7}, {4, 7}, {7, 7}};
+        for(int[] pos: lightPos) {
+            gc.setFill(Color.WHITE);
+            gc.fillRect((sx+(ex-sx)/9*(pos[0]))*size, (sy+(ey-sy)/9*(pos[1]))*size, (ex-sx)/9*size, (ey-sy)/9*size);
+            gc.setFill(Color.ORANGE);
+            gc.fillRect((sx+(ex-sx)/9*(pos[0]))*size, (sy+(ey-sy)/9*(pos[1]))*size, (ex-sx)/9*size, (ey-sy)/9/3*size);
+            gc.fillRect((sx+(ex-sx)/9*(pos[0]))*size, (sy+(ey-sy)/9*(pos[1]))*size + 2*(ey-sy)/9/3*size, (ex-sx)/9*size, (ey-sy)/9/3*size);
+            gc.setStroke(Color.BLACK);
+            gc.setLineWidth(1.5);
+            gc.strokeRect((sx+(ex-sx)/9*(pos[0]))*size, (sy+(ey-sy)/9*(pos[1]))*size, (ex-sx)/9*size, (ey-sy)/9*size);
+        }
 
         // 点灯パターンを描画
+
+        // センサを描画
     }
 
 }
