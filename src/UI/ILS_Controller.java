@@ -51,6 +51,7 @@ public class ILS_Controller implements Initializable {
         left_pane.heightProperty().addListener((observableValue, o, n) -> resizeCanvas());
 
         getSensorData();
+        updateSensor();
     }
 
 
@@ -58,35 +59,33 @@ public class ILS_Controller implements Initializable {
     // 在離席更新
     public void changeAttendance() {
         // ToDo: 在離席を更新するメソッド呼び出し
-        if(att_btn_a.isSelected()) {att_lbl_a.setText("在席");} else {att_lbl_a.setText("離席");}
-        if(att_btn_b.isSelected()) {att_lbl_b.setText("在席");} else {att_lbl_b.setText("離席");}
-        if(att_btn_c.isSelected()) {att_lbl_c.setText("在席");} else {att_lbl_c.setText("離席");}
-        if(att_btn_d.isSelected()) {att_lbl_d.setText("在席");} else {att_lbl_d.setText("離席");}
-        if(att_btn_e.isSelected()) {att_lbl_e.setText("在席");} else {att_lbl_e.setText("離席");}
-        if(att_btn_f.isSelected()) {att_lbl_f.setText("在席");} else {att_lbl_f.setText("離席");}
+        dataAttendance[0] = att_btn_a.isSelected();
+        dataAttendance[1] = att_btn_b.isSelected();
+        dataAttendance[2] = att_btn_c.isSelected();
+        dataAttendance[3] = att_btn_d.isSelected();
+        dataAttendance[4] = att_btn_e.isSelected();
+        dataAttendance[5] = att_btn_f.isSelected();
+
+        setSensorData();
+        updateSensor();
     }
 
     // 目標照度設定
     public void changeTargetIlluminance(ActionEvent event) {
         // ToDo: 目標照度を更新するメソッド呼び出し
-        if(event.getSource() == dill_btn_a) {till_lbl_a.setText(String.valueOf(Integer.parseInt(till_lbl_a.getText())-50));}
-        if(event.getSource() == dill_btn_b) {till_lbl_b.setText(String.valueOf(Integer.parseInt(till_lbl_b.getText())-50));}
-        if(event.getSource() == dill_btn_c) {till_lbl_c.setText(String.valueOf(Integer.parseInt(till_lbl_c.getText())-50));}
-        if(event.getSource() == dill_btn_d) {till_lbl_d.setText(String.valueOf(Integer.parseInt(till_lbl_d.getText())-50));}
-        if(event.getSource() == dill_btn_e) {till_lbl_e.setText(String.valueOf(Integer.parseInt(till_lbl_e.getText())-50));}
-        if(event.getSource() == dill_btn_f) {till_lbl_f.setText(String.valueOf(Integer.parseInt(till_lbl_f.getText())-50));}
+        if(event.getSource() == dill_btn_a) {till_lbl_a.setText(String.valueOf(Integer.parseInt(till_lbl_a.getText())-50)); dataTarget[0]-=50;}
+        if(event.getSource() == dill_btn_b) {till_lbl_b.setText(String.valueOf(Integer.parseInt(till_lbl_b.getText())-50)); dataTarget[1]-=50;}
+        if(event.getSource() == dill_btn_c) {till_lbl_c.setText(String.valueOf(Integer.parseInt(till_lbl_c.getText())-50)); dataTarget[2]-=50;}
+        if(event.getSource() == dill_btn_d) {till_lbl_d.setText(String.valueOf(Integer.parseInt(till_lbl_d.getText())-50)); dataTarget[3]-=50;}
+        if(event.getSource() == dill_btn_e) {till_lbl_e.setText(String.valueOf(Integer.parseInt(till_lbl_e.getText())-50)); dataTarget[4]-=50;}
+        if(event.getSource() == dill_btn_f) {till_lbl_f.setText(String.valueOf(Integer.parseInt(till_lbl_f.getText())-50)); dataTarget[5]-=50;}
 
-        if(event.getSource() == uill_btn_a) {till_lbl_a.setText(String.valueOf(Integer.parseInt(till_lbl_a.getText())+50));}
-        if(event.getSource() == uill_btn_b) {till_lbl_b.setText(String.valueOf(Integer.parseInt(till_lbl_b.getText())+50));}
-        if(event.getSource() == uill_btn_c) {till_lbl_c.setText(String.valueOf(Integer.parseInt(till_lbl_c.getText())+50));}
-        if(event.getSource() == uill_btn_d) {till_lbl_d.setText(String.valueOf(Integer.parseInt(till_lbl_d.getText())+50));}
-        if(event.getSource() == uill_btn_e) {till_lbl_e.setText(String.valueOf(Integer.parseInt(till_lbl_e.getText())+50));}
-        if(event.getSource() == uill_btn_f) {till_lbl_f.setText(String.valueOf(Integer.parseInt(till_lbl_f.getText())+50));}
-    }
-
-    // ディジタル照度センサによる目標照度更新
-    public void changeTargetIlluminanceBySensor() {
-
+        if(event.getSource() == uill_btn_a) {till_lbl_a.setText(String.valueOf(Integer.parseInt(till_lbl_a.getText())+50)); dataTarget[0]+=50;}
+        if(event.getSource() == uill_btn_b) {till_lbl_b.setText(String.valueOf(Integer.parseInt(till_lbl_b.getText())+50)); dataTarget[1]+=50;}
+        if(event.getSource() == uill_btn_c) {till_lbl_c.setText(String.valueOf(Integer.parseInt(till_lbl_c.getText())+50)); dataTarget[2]+=50;}
+        if(event.getSource() == uill_btn_d) {till_lbl_d.setText(String.valueOf(Integer.parseInt(till_lbl_d.getText())+50)); dataTarget[3]+=50;}
+        if(event.getSource() == uill_btn_e) {till_lbl_e.setText(String.valueOf(Integer.parseInt(till_lbl_e.getText())+50)); dataTarget[4]+=50;}
+        if(event.getSource() == uill_btn_f) {till_lbl_f.setText(String.valueOf(Integer.parseInt(till_lbl_f.getText())+50)); dataTarget[5]+=50;}
     }
 
     // キャンバスをリサイズ
@@ -169,6 +168,45 @@ public class ILS_Controller implements Initializable {
         } catch (Exception e) {
             System.out.println(e);
         }
+    }
+
+    // 照度センサ情報書込
+    public void setSensorData() {
+        // ToDo: 実装
+    }
+
+    // 照度センサ情報アップデート
+    public void updateSensor() {
+        // 照度
+        ill_lbl_a.setText(String.valueOf((int)dataSensor[0]));
+        ill_lbl_b.setText(String.valueOf((int)dataSensor[1]));
+        ill_lbl_c.setText(String.valueOf((int)dataSensor[2]));
+        ill_lbl_d.setText(String.valueOf((int)dataSensor[3]));
+        ill_lbl_e.setText(String.valueOf((int)dataSensor[4]));
+        ill_lbl_f.setText(String.valueOf((int)dataSensor[5]));
+
+        // 目標照度
+        till_lbl_a.setText(String.valueOf((int)dataTarget[0]));
+        till_lbl_b.setText(String.valueOf((int)dataTarget[1]));
+        till_lbl_c.setText(String.valueOf((int)dataTarget[2]));
+        till_lbl_d.setText(String.valueOf((int)dataTarget[3]));
+        till_lbl_e.setText(String.valueOf((int)dataTarget[4]));
+        till_lbl_f.setText(String.valueOf((int)dataTarget[5]));
+
+        // 在離席
+        att_btn_a.setSelected(dataAttendance[0]);
+        att_btn_b.setSelected(dataAttendance[1]);
+        att_btn_c.setSelected(dataAttendance[2]);
+        att_btn_d.setSelected(dataAttendance[3]);
+        att_btn_e.setSelected(dataAttendance[4]);
+        att_btn_f.setSelected(dataAttendance[5]);
+
+        if(att_btn_a.isSelected()) {att_lbl_a.setText("在席");} else {att_lbl_a.setText("離席");}
+        if(att_btn_b.isSelected()) {att_lbl_b.setText("在席");} else {att_lbl_b.setText("離席");}
+        if(att_btn_c.isSelected()) {att_lbl_c.setText("在席");} else {att_lbl_c.setText("離席");}
+        if(att_btn_d.isSelected()) {att_lbl_d.setText("在席");} else {att_lbl_d.setText("離席");}
+        if(att_btn_e.isSelected()) {att_lbl_e.setText("在席");} else {att_lbl_e.setText("離席");}
+        if(att_btn_f.isSelected()) {att_lbl_f.setText("在席");} else {att_lbl_f.setText("離席");}
     }
 
 }
