@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<SplitPane dividerPositions="0.5" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
+  <items>
+    <AnchorPane minHeight="0.0" minWidth="350.0">
+         <children>
+            <Canvas height="200.0" width="200.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
+            <HBox alignment="CENTER" layoutX="86.0" layoutY="434.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+               <children>
+                  <Button id="default_button" mnemonicParsing="false" prefWidth="100.0" text=" ALL " textAlignment="CENTER">
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </HBox.margin></Button>
+                  <Button id="default_button" mnemonicParsing="false" prefWidth="100.0" text="HALF" textAlignment="CENTER">
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+            </HBox>
+         </children></AnchorPane>
+    <AnchorPane maxWidth="500.0" minWidth="400.0">
+         <children>
+            <BorderPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <bottom>
+                  <HBox alignment="CENTER" BorderPane.alignment="CENTER">
+                     <children>
+                        <Button id="default_button" mnemonicParsing="false" text="白色→電球色">
+                           <HBox.margin>
+                              <Insets bottom="5.0" top="5.0" />
+                           </HBox.margin></Button>
+                        <Button id="default_button" mnemonicParsing="false" text="電球色→白色">
+                           <HBox.margin>
+                              <Insets bottom="5.0" left="10.0" top="5.0" />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                  </HBox>
+               </bottom>
+               <center>
+                  <GridPane maxHeight="1.7976931348623157E308" BorderPane.alignment="CENTER">
+                     <columnConstraints>
+                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" />
+                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" />
+                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="1.7976931348623157E308" minHeight="0.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="1.7976931348623157E308" minHeight="9.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="1.7976931348623157E308" minHeight="0.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="1.7976931348623157E308" minHeight="0.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="1.7976931348623157E308" minHeight="4.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="1.7976931348623157E308" minHeight="7.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="1.7976931348623157E308" minHeight="0.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                     <children>
+                        <Button id="select_button" alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" text=" 60 % " GridPane.rowIndex="3" />
+                        <Button id="select_button" alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" style="-fx-background-color: #FFFFFF;" text="  0 %  " GridPane.rowIndex="1" />
+                        <Button id="select_button" alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" style="-fx-background-color: #FFFFFF;" text=" 20 % " GridPane.rowIndex="2" />
+                        <Button id="select_button" alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" style="-fx-background-color: #FFFFFF;" text=" 40 % " GridPane.rowIndex="3" />
+                        <Button id="select_button" alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" style="-fx-background-color: #FFFFFF;" text=" 80 % " GridPane.rowIndex="4" />
+                        <Button id="select_button" alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" style="-fx-background-color: #FFFFFF;" text="100 %" GridPane.rowIndex="5" />
+                        <Label text="白色" />
+                        <Button id="select_button" alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" style="-fx-background-color: #FFF3E0;" text="100 %" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                        <Button id="select_button" alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" style="-fx-background-color: #FFF3E0;" text=" 80 % " GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                        <Button id="select_button" alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" style="-fx-background-color: #FFF3E0;" text=" 60 % " GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <Button id="select_button" alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" style="-fx-background-color: #FFF3E0;" text=" 40 % " GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <Button id="select_button" alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" text=" 20 % " GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <Button id="select_button" alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" style="-fx-background-color: #FFF3E0;" text="  0 %  " GridPane.columnIndex="1" GridPane.rowIndex="1">
+                           <GridPane.margin>
+                              <Insets />
+                           </GridPane.margin>
+                        </Button>
+                        <Label text="電球色" GridPane.columnIndex="1" />
+                        <Button id="select_button" alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" style="-fx-background-color: #7A96FE;" text="6000K" GridPane.columnIndex="2" GridPane.rowIndex="9" />
+                        <Button id="select_button" alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" style="-fx-background-color: #9BB0FC;" text="5500K" GridPane.columnIndex="2" GridPane.rowIndex="8" />
+                        <Button id="select_button" alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" style="-fx-background-color: #BECBFD;" text="5000K" GridPane.columnIndex="2" GridPane.rowIndex="7" />
+                        <Button id="select_button" alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" style="-fx-background-color: #E1E7FD;" text="4500K" GridPane.columnIndex="2" GridPane.rowIndex="6" />
+                        <Button id="select_button" alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" style="-fx-background-color: #FFFFFF;" text="4000K" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+                        <Button id="select_button" alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" style="-fx-background-color: #FDDED6;" text="3500K" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+                        <Button id="select_button" alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" style="-fx-background-color: #FEC5B6;" text="3000K" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                        <Button id="select_button" alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" style="-fx-background-color: #FFB19D;" text="2500K" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                        <Button id="select_button" alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" style="-fx-background-color: #FE967B;" text="2000K" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                        <Label text="色温度" GridPane.columnIndex="2" />
+                     </children>
+                     <BorderPane.margin>
+                        <Insets top="5.0" />
+                     </BorderPane.margin>
+                  </GridPane>
+               </center>
+            </BorderPane>
+         </children></AnchorPane>
+  </items>
+</SplitPane>
