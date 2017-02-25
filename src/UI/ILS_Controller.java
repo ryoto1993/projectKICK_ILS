@@ -1,5 +1,6 @@
 package UI;
 
+import com.sun.org.apache.xpath.internal.operations.Bool;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -9,11 +10,13 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.SplitPane;
 import javafx.scene.control.ToggleButton;
-import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.scene.transform.Affine;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -37,11 +40,19 @@ public class ILS_Controller implements Initializable {
     @FXML
     SplitPane split_pane;
 
+    FileReader fileSensor, fileTarget, fileAttendance, fileLuminosity;
+    double dataSensor[] = {0,0,0,0,0,0};
+    double dataTarget[] = {0,0,0,0,0,0};
+    boolean dataAttendance[] = {false, false, false, false, false, false};
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         left_pane.widthProperty().addListener((observableValue, o, n) -> resizeCanvas());
         left_pane.heightProperty().addListener((observableValue, o, n) -> resizeCanvas());
+
+        getSensorData();
     }
+
 
 
     // 在離席更新
@@ -53,11 +64,6 @@ public class ILS_Controller implements Initializable {
         if(att_btn_d.isSelected()) {att_lbl_d.setText("在席");} else {att_lbl_d.setText("離席");}
         if(att_btn_e.isSelected()) {att_lbl_e.setText("在席");} else {att_lbl_e.setText("離席");}
         if(att_btn_f.isSelected()) {att_lbl_f.setText("在席");} else {att_lbl_f.setText("離席");}
-    }
-
-    // ディジタル照度センサによる在離席更新
-    public void changeAttendanceBySensor() {
-
     }
 
     // 目標照度設定
@@ -138,6 +144,31 @@ public class ILS_Controller implements Initializable {
         // 点灯パターンを描画
 
         // センサを描画
+    }
+
+    // 照度センサ情報取得
+    public void getSensorData() {
+        try {
+            fileSensor = new FileReader("interface/sensor.txt");
+            fileTarget = new FileReader("interface/target.txt");
+            fileAttendance = new FileReader("interface/attendance.txt");
+            BufferedReader s_br = new BufferedReader(fileSensor);
+            BufferedReader t_br = new BufferedReader(fileTarget);
+            BufferedReader a_br = new BufferedReader(fileAttendance);
+
+            String s_tmp[] = s_br.readLine().split(",");
+            for(int i=0; i<s_tmp.length; i++) dataSensor[i] = Double.parseDouble(s_tmp[i]);
+            String t_tmp[] = t_br.readLine().split(",");
+            for(int i=0; i<t_tmp.length; i++) dataTarget[i] = Double.parseDouble(t_tmp[i]);
+            String a_tmp[] = a_br.readLine().split(",");
+            for(int i=0; i<a_tmp.length; i++) dataAttendance[i] = a_tmp[i].equals("1") ? true : false;
+
+            s_br.close();
+            t_br.close();
+            a_br.close();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
     }
 
 }
