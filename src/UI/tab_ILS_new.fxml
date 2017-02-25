@@ -15,11 +15,11 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<SplitPane dividerPositions="0.6" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="500.0" minWidth="700.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.ILS_Controller">
+<SplitPane fx:id="split_pane" dividerPositions="0.6" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="500.0" minWidth="700.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.ILS_Controller">
    <items>
-      <AnchorPane minWidth="300.0">
+      <AnchorPane fx:id="left_pane" minWidth="300.0">
          <children>
-            <Canvas height="400.0" layoutX="83.0" width="400.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
+            <Canvas fx:id="canvas" height="400.0" width="400.0" />
             <GridPane layoutY="291.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
