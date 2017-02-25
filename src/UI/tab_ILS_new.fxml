@@ -112,14 +112,14 @@
                               <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0">
                                  <children>
                                     <Label id="sensor_label" text="目標照度：" />
-                                    <Label id="sensor_label" text=" 700" />
+                                    <Label id="illuminance_label" fx:id="till_lbl_a" text="700" />
                                     <Label id="sensor_label" text=" lx" />
                                  </children>
                               </HBox>
                               <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0">
                                  <children>
                                     <Label id="sensor_label" text="現在照度：" />
-                                    <Label id="sensor_label" text=" 690" />
+                                    <Label id="illuminance_label" fx:id="ill_lbl_a" text="0" />
                                     <Label id="sensor_label" text=" lx">
                                        <HBox.margin>
                                           <Insets />
@@ -139,12 +139,12 @@
                                           <Label id="attendance_label" fx:id="att_lbl_a" text="離席" />
                                        </children>
                                     </HBox>
-                                    <Button id="target_illuminance_button" mnemonicParsing="false" text="∨">
+                                    <Button id="target_illuminance_button" fx:id="dill_btn_a" mnemonicParsing="false" onAction="#changeTargetIlluminance" text="∨">
                                        <HBox.margin>
                                           <Insets left="5.0" right="5.0" />
                                        </HBox.margin>
                                     </Button>
-                                    <Button id="target_illuminance_button" mnemonicParsing="false" text="∧" />
+                                    <Button id="target_illuminance_button" fx:id="uill_btn_a" mnemonicParsing="false" onAction="#changeTargetIlluminance" text="∧" />
                                  </children>
                               </HBox>
                            </children>
@@ -155,14 +155,14 @@
                               <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0">
                                  <children>
                                     <Label id="sensor_label" text="目標照度：" />
-                                    <Label id="sensor_label" text=" 700" />
+                                    <Label id="illuminance_label" fx:id="till_lbl_b" text="700" />
                                     <Label id="sensor_label" text=" lx" />
                                  </children>
                               </HBox>
                               <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0">
                                  <children>
                                     <Label id="sensor_label" text="現在照度：" />
-                                    <Label id="sensor_label" text=" 690" />
+                                    <Label id="illuminance_label" fx:id="ill_lbl_b" text="0" />
                                     <Label id="sensor_label" text=" lx">
                                        <HBox.margin>
                                           <Insets />
@@ -182,12 +182,12 @@
                                           <Label id="attendance_label" fx:id="att_lbl_b" text="離席" />
                                        </children>
                                     </HBox>
-                                    <Button id="target_illuminance_button" mnemonicParsing="false" text="∨">
+                                    <Button id="target_illuminance_button" fx:id="dill_btn_b" mnemonicParsing="false" onAction="#changeTargetIlluminance" text="∨">
                                        <HBox.margin>
                                           <Insets left="5.0" right="5.0" />
                                        </HBox.margin>
                                     </Button>
-                                    <Button id="target_illuminance_button" mnemonicParsing="false" text="∧" />
+                                    <Button id="target_illuminance_button" fx:id="uill_btn_b" mnemonicParsing="false" onAction="#changeTargetIlluminance" text="∧" />
                                  </children>
                               </HBox>
                            </children>
@@ -198,14 +198,14 @@
                               <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0">
                                  <children>
                                     <Label id="sensor_label" text="目標照度：" />
-                                    <Label id="sensor_label" text=" 700" />
+                                    <Label id="illuminance_label" fx:id="till_lbl_c" text="700" />
                                     <Label id="sensor_label" text=" lx" />
                                  </children>
                               </HBox>
                               <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0">
                                  <children>
                                     <Label id="sensor_label" text="現在照度：" />
-                                    <Label id="sensor_label" text=" 690" />
+                                    <Label id="illuminance_label" fx:id="ill_lbl_c" text="0" />
                                     <Label id="sensor_label" text=" lx">
                                        <HBox.margin>
                                           <Insets />
@@ -225,12 +225,12 @@
                                           <Label id="attendance_label" fx:id="att_lbl_c" text="離席" />
                                        </children>
                                     </HBox>
-                                    <Button id="target_illuminance_button" mnemonicParsing="false" text="∨">
+                                    <Button id="target_illuminance_button" fx:id="dill_btn_c" mnemonicParsing="false" onAction="#changeTargetIlluminance" text="∨">
                                        <HBox.margin>
                                           <Insets left="5.0" right="5.0" />
                                        </HBox.margin>
                                     </Button>
-                                    <Button id="target_illuminance_button" mnemonicParsing="false" text="∧" />
+                                    <Button id="target_illuminance_button" fx:id="uill_btn_c" mnemonicParsing="false" onAction="#changeTargetIlluminance" text="∧" />
                                  </children>
                               </HBox>
                            </children>
@@ -241,14 +241,14 @@
                               <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0">
                                  <children>
                                     <Label id="sensor_label" text="目標照度：" />
-                                    <Label id="sensor_label" text=" 700" />
+                                    <Label id="illuminance_label" fx:id="till_lbl_d" text="700" />
                                     <Label id="sensor_label" text=" lx" />
                                  </children>
                               </HBox>
                               <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0">
                                  <children>
                                     <Label id="sensor_label" text="現在照度：" />
-                                    <Label id="sensor_label" text=" 690" />
+                                    <Label id="illuminance_label" fx:id="ill_lbl_d" text="0" />
                                     <Label id="sensor_label" text=" lx">
                                        <HBox.margin>
                                           <Insets />
@@ -268,12 +268,12 @@
                                           <Label id="attendance_label" fx:id="att_lbl_d" text="離席" />
                                        </children>
                                     </HBox>
-                                    <Button id="target_illuminance_button" mnemonicParsing="false" text="∨">
+                                    <Button id="target_illuminance_button" fx:id="dill_btn_d" mnemonicParsing="false" onAction="#changeTargetIlluminance" text="∨">
                                        <HBox.margin>
                                           <Insets left="5.0" right="5.0" />
                                        </HBox.margin>
                                     </Button>
-                                    <Button id="target_illuminance_button" mnemonicParsing="false" text="∧" />
+                                    <Button id="target_illuminance_button" fx:id="uill_btn_d" mnemonicParsing="false" onAction="#changeTargetIlluminance" text="∧" />
                                  </children>
                               </HBox>
                            </children>
@@ -284,14 +284,14 @@
                               <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0">
                                  <children>
                                     <Label id="sensor_label" text="目標照度：" />
-                                    <Label id="sensor_label" text=" 700" />
+                                    <Label id="illuminance_label" fx:id="till_lbl_e" text="700" />
                                     <Label id="sensor_label" text=" lx" />
                                  </children>
                               </HBox>
                               <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0">
                                  <children>
                                     <Label id="sensor_label" text="現在照度：" />
-                                    <Label id="sensor_label" text=" 690" />
+                                    <Label id="illuminance_label" fx:id="ill_lbl_e" text="0" />
                                     <Label id="sensor_label" text=" lx">
                                        <HBox.margin>
                                           <Insets />
@@ -311,12 +311,12 @@
                                           <Label id="attendance_label" fx:id="att_lbl_e" text="離席" />
                                        </children>
                                     </HBox>
-                                    <Button id="target_illuminance_button" mnemonicParsing="false" text="∨">
+                                    <Button id="target_illuminance_button" fx:id="dill_btn_e" mnemonicParsing="false" onAction="#changeTargetIlluminance" text="∨">
                                        <HBox.margin>
                                           <Insets left="5.0" right="5.0" />
                                        </HBox.margin>
                                     </Button>
-                                    <Button id="target_illuminance_button" mnemonicParsing="false" text="∧" />
+                                    <Button id="target_illuminance_button" fx:id="uill_btn_e" mnemonicParsing="false" onAction="#changeTargetIlluminance" text="∧" />
                                  </children>
                               </HBox>
                            </children>
@@ -327,14 +327,14 @@
                               <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0">
                                  <children>
                                     <Label id="sensor_label" text="目標照度：" />
-                                    <Label id="sensor_label" text=" 700" />
+                                    <Label id="illuminance_label" fx:id="till_lbl_f" text="700" />
                                     <Label id="sensor_label" text=" lx" />
                                  </children>
                               </HBox>
                               <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0">
                                  <children>
                                     <Label id="sensor_label" text="現在照度：" />
-                                    <Label id="sensor_label" text=" 690" />
+                                    <Label id="illuminance_label" fx:id="ill_lbl_f" text="0" />
                                     <Label id="sensor_label" text=" lx">
                                        <HBox.margin>
                                           <Insets />
@@ -354,12 +354,12 @@
                                           <Label id="attendance_label" fx:id="att_lbl_f" text="離席" />
                                        </children>
                                     </HBox>
-                                    <Button id="target_illuminance_button" mnemonicParsing="false" text="∨">
+                                    <Button id="target_illuminance_button" fx:id="dill_btn_f" mnemonicParsing="false" onAction="#changeTargetIlluminance" text="∨">
                                        <HBox.margin>
                                           <Insets left="5.0" right="5.0" />
                                        </HBox.margin>
                                     </Button>
-                                    <Button id="target_illuminance_button" mnemonicParsing="false" text="∧" />
+                                    <Button id="target_illuminance_button" fx:id="uill_btn_f" mnemonicParsing="false" onAction="#changeTargetIlluminance" text="∧" />
                                  </children>
                               </HBox>
                            </children>

@@ -86,6 +86,14 @@
     -fx-text-fill: white;
 }
 
+#illuminance_label {
+    -fx-font-family: "Segoe UI";
+    -fx-font-size: 19pt;
+    -fx-alignment: center-right;
+    -fx-text-fill: white;
+    -fx-pref-width: 55;
+}
+
 #attendance_box {
     -fx-alignment: center-left;
     -fx-min-height: 38;
