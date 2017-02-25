@@ -1,6 +1,5 @@
 package UI;
 
-import com.sun.org.apache.xpath.internal.operations.Bool;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -15,7 +14,6 @@ import javafx.scene.paint.Color;
 import javafx.scene.transform.Affine;
 
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -40,11 +38,17 @@ public class ILS_Controller implements Initializable {
     @FXML
     SplitPane split_pane;
 
-    FileReader fileSensor, fileTarget, fileAttendance, fileLuminosity;
+    // 固定設定
+    public static int MAX_SIGNAL = 100;
+
+    FileReader fileSensor, fileTarget, fileAttendance, fileLightSignal;
     double dataSensor[] = {0,0,0,0,0,0};
     double dataTarget[] = {0,0,0,0,0,0};
     boolean dataAttendance[] = {false, false, false, false, false, false};
+    int dataLightSignal_0[] = {0,0,0,0,0,0,0,0,0};
+    int dataLightSignal_1[] = {0,0,0,0,0,0,0,0,0};
 
+    // 初期化
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         left_pane.widthProperty().addListener((observableValue, o, n) -> resizeCanvas());
@@ -52,9 +56,8 @@ public class ILS_Controller implements Initializable {
 
         getSensorData();
         updateSensor();
+        getLightSignalData();
     }
-
-
 
     // 在離席更新
     public void changeAttendance() {
@@ -141,6 +144,15 @@ public class ILS_Controller implements Initializable {
         }
 
         // 点灯パターンを描画
+        double maxOvalSize = (ex-sx)/9*size * 3;  // 点灯パターンの円の最大の大きさ
+        for(int p=0; p<lightPos.length; p++) {
+            double ovalSize = (double)dataLightSignal_0[p] / MAX_SIGNAL * maxOvalSize;
+            gc.setFill(Color.web("#ffc61c", 0.7));
+            gc.fillOval((sx+(ex-sx)/9*(lightPos[p][0]+0.5))*size - ovalSize/2, (sy+(ey-sy)/9*(lightPos[p][1]+0.5))*size - ovalSize/2, ovalSize, ovalSize);
+            gc.setStroke(Color.web("#ff891c"));
+            gc.setLineWidth(2.5);
+            gc.strokeOval((sx+(ex-sx)/9*(lightPos[p][0]+0.5))*size - ovalSize/2, (sy+(ey-sy)/9*(lightPos[p][1]+0.5))*size - ovalSize/2, ovalSize, ovalSize);
+        }
 
         // センサを描画
     }
@@ -168,6 +180,8 @@ public class ILS_Controller implements Initializable {
         } catch (Exception e) {
             System.out.println(e);
         }
+
+        updateSensor();
     }
 
     // 照度センサ情報書込
@@ -207,6 +221,26 @@ public class ILS_Controller implements Initializable {
         if(att_btn_d.isSelected()) {att_lbl_d.setText("在席");} else {att_lbl_d.setText("離席");}
         if(att_btn_e.isSelected()) {att_lbl_e.setText("在席");} else {att_lbl_e.setText("離席");}
         if(att_btn_f.isSelected()) {att_lbl_f.setText("在席");} else {att_lbl_f.setText("離席");}
+    }
+
+    // 照明情報取得
+    public void getLightSignalData() {
+        try {
+            fileLightSignal = new FileReader("interface/cdinfo.txt");
+            BufferedReader br = new BufferedReader(fileLightSignal);
+
+            String tmp[] = br.readLine().split(",");
+            for(int i=0; i<tmp.length/2; i++) {
+                dataLightSignal_0[i] = Integer.parseInt(tmp[i*2]);
+                dataLightSignal_1[i] = Integer.parseInt(tmp[i*2 + 1]);
+            }
+
+            br.close();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+
+        updateCanvas();
     }
 
 }
