@@ -38,8 +38,9 @@ public class ILS_Controller implements Initializable {
     @FXML
     SplitPane split_pane;
 
-    // 固定設定
-    public static int MAX_SIGNAL = 100;
+    // 設定
+    public int MAX_SIGNAL = 100;
+    public String room = "L";   // 実験室 L or Rの指定
 
     FileReader fileSensor, fileTarget, fileAttendance, fileLightSignal;
     double dataSensor[] = {0,0,0,0,0,0};
@@ -117,6 +118,7 @@ public class ILS_Controller implements Initializable {
         gc.clearRect(0, 0, canvas.getWidth(), canvas.getHeight());
 
         // グリッド描画
+        // ToDo: 疑似窓位置の表示
         gc.setFill(Color.WHITE);
         gc.fillRect(sx*size, sy*size, (ex-sx)*size, (ey-sy)*size);
         gc.setStroke(Color.BLACK);
